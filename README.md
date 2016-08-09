@@ -74,7 +74,7 @@ state, you can use the following function:
 		}
 		
 	}, function() {
-		console.log('Failed check the device's idle state.');
+		console.log('Failed to check the device's idle state.');
 	});
 
 Note that in all the above examples, all callbacks are optional.
