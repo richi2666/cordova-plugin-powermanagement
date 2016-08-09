@@ -61,7 +61,7 @@ By default, the plugin will automatically release a wakelock when your app is pa
 	
 ### [Android Only, API >= 23] window.powerManagement.isDeviceIdleMode(successCallback, failureCallback)
 As of Android 6.0.0+, Android now has an extra power management feature called 'Doze'. This feature disables most device
-components when it is asleep for too long, and is then placed in an 'idle' state. To check to see if the device is in this
+components when it is asleep for an extended period of time and is then placed in an 'idle' state. To check to see if the device is in this
 state, you can use the following function:
 
 	// 'state' is either 1 (in idle) or 0 (not in idle)
