@@ -58,4 +58,16 @@ PowerManagement.prototype.dim = function(successCallback,failureCallback) {
     cordova.exec(successCallback, failureCallback, 'PowerManagement', 'acquire', [true]);
 }
 
+/**
+ * Checks the device's idle state. Android Only.
+ *  *** Requires minimum API level 23 ***
+ *
+ * @param successCallback function to be called when the device's idle state returns successfully
+ * @param errorCallback function to be called when there was a problem with checking the device's idle state
+ */
+
+PowerManagement.prototype.isDeviceIdleMode = function(successCallback,failureCallback) {
+    cordova.exec(successCallback, failureCallback, 'PowerManagement', 'isDeviceIdleMode', []);
+}
+
 module.exports = new PowerManagement();
