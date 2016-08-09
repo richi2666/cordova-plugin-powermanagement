@@ -2,8 +2,8 @@ PowerManagement
 ===============
 Plugin for Cordova (3.0+)
 
-changed SCREEN_DIM_WAKE_LOCK to PARTIAL_WAKE_LOCK
-=================================================
+Added 'isDeviceIdleMode' function for use with API >= 23
+========================================================
 
 The PowerManagement plugin offers access to the devices power-management functionality.
 It should be used for applications which keep running for a long time without any user interaction.
