@@ -79,6 +79,18 @@ public class PowerManagement extends CordovaPlugin {
 				} catch (Exception e) {
 					result = new PluginResult(PluginResult.Status.ERROR, "Could not set releaseOnPause");
 				}
+			} else if( action.equals("isDeviceIdleMode")) {
+				// Only available since API 23
+				if (android.os.Build.VERSION.SDK_INT >= 23) {
+					try {
+						callbackContext.success((this.powerManager.isDeviceIdleMode() ? 1 : 0));
+					} catch (Exception e) {
+						result = new PluginResult(PluginResult.Status.ERROR, "Could not get device idle status.");
+					}
+				}
+				else {
+					result = new PluginResult(PluginResult.Status.ERROR, "Android version too old to use isDeviceIdleMode().");
+				}
 			}
 		}
 		catch( JSONException e ) {
