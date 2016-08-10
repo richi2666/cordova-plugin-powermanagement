@@ -61,8 +61,9 @@ By default, the plugin will automatically release a wakelock when your app is pa
 	
 ### [Android Only, API >= 23] window.powerManagement.isDeviceIdleMode(successCallback, failureCallback)
 As of Android 6.0.0+, Android now has an extra power management feature called 'Doze'. This feature disables most device
-components when it is asleep for an extended period of time and is then placed in an 'idle' state. To check to see if the device is in this
-state, you can use the following function:
+components (network connection, GPS, etc.) when it is asleep for an extended period of time and is then placed in an 'idle' state.
+
+To check to see if the device is in this state, you can use the following function:
 
 	// 'state' is either 1 (in idle) or 0 (not in idle)
 	window.powerManagement.isDeviceIdleMode(function(state) {
@@ -70,11 +71,59 @@ state, you can use the following function:
 			console.log('Device IS in idle mode.');
 		}
 		else {
-			console.log('Device is NOT in idle mode.');
+			console.log('Device IS NOT in idle mode.');
 		}
 		
 	}, function() {
 		console.log('Failed to check the device's idle state.');
+	});
+
+### [Android Only, API >= 23] window.powerManagement.addAppToBatteryWhitelist(successCallback, failureCallback)
+As of Android 6.0.0+, Android now has an extra power management feature called 'Doze'. This feature disables most device
+components (network connection, GPS, etc.) when it is asleep for an extended period of time and is then placed in an 'idle' state. Adding the app to the battery optimization whitelist can circumvent some of these issues.
+
+To add the app that uses this plugin to the device's battery optimization whitelist, use the following function:
+
+	window.powerManagement.addAppToBatteryWhitelist(function() {
+		console.log('A dialog has popped up asking you to accept adding the app to the whitelist.');
+	}, function() {
+		console.log('Failed to add the app to the device's battery optimization whitelist.');
+	});
+
+### [Android Only, API >= 23] window.powerManagement.isIgnoringBatteryOptimizations(successCallback, failureCallback)
+As of Android 6.0.0+, Android now has an extra power management feature called 'Doze'. This feature disables most device
+components (network connection, GPS, etc.) when it is asleep for an extended period of time and is then placed in an 'idle' state.
+
+To check to see if the app that uses this plugin is on the device's battery optimization whitelist, use the following function:
+
+	window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
+		if (result === 1) {
+			console.log('This app IS on the device's battery optimization whitelist.');
+		}
+		else {
+			console.log('This app IS NOT on the device's battery optimization whitelist.');
+		}
+	}, function() {
+		console.log('Failed to add the app to the device's battery optimization whitelist.');
+	});
+
+
+This function can be use in conjuction with the `window.powerManagement.addAppToBatteryWhitelist` above. Example:
+
+	window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
+		// If the app isn't on the battery whitelist, open the dialog to add it
+		if (result !== 1) {
+			window.powerManagement.addAppToBatteryWhitelist(function() {
+				console.log('A dialog has popped up asking you to accept adding the app to the whitelist.');
+			}, function() {
+				console.log('Failed to add the app to the device's battery optimization whitelist.');
+			});
+		}
+		else {
+			console.log('This app IS NOT on the device's battery optimization whitelist.');
+		}
+	}, function() {
+		console.log('Failed to add the app to the device's battery optimization whitelist.');
 	});
 
 Note that in all the above examples, all callbacks are optional.
