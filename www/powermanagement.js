@@ -81,7 +81,7 @@ PowerManagement.prototype.isIgnoringBatteryOptimizations = function (successCall
 };
 
 /**
- * Opens a dialog that allows the use to add the app to the battery optimization whitelist. Android Only.
+ * Opens a dialog that allows the user to add the app to the battery optimization whitelist. Android Only.
  *  *** Requires minimum API level 23 ***
  *
  * @param successCallback function to be called when adding the app to the battery optimization whitelist is successful
