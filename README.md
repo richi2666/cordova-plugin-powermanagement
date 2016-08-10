@@ -2,7 +2,7 @@ PowerManagement
 ===============
 Plugin for Cordova (3.0+)
 
-Added 'isDeviceIdleMode' function for use with Android 6.0.0+
+Added 'isIgnoringBatteryOptimizations' and 'addAppToBatteryWhitelist' functions for use with Android 6.0.0+
 =============================================================
 
 The PowerManagement plugin offers access to the devices power-management functionality.
@@ -108,7 +108,7 @@ To check to see if the app that uses this plugin is on the device's battery opti
 	});
 
 
-This function can be use in conjuction with the `window.powerManagement.addAppToBatteryWhitelist` above. Example:
+This function can be use in conjunction with the `window.powerManagement.addAppToBatteryWhitelist` above. Example:
 
 	window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 		// If the app isn't on the battery whitelist, open the dialog to add it
