@@ -74,7 +74,7 @@ window.powerManagement.isDeviceIdleMode(function(state) {
 	if (state === 1) {
 		console.log('Device IS in idle mode.');
 	}
-	else {
+else {
 		console.log('Device IS NOT in idle mode.');
 	}
 	
@@ -92,7 +92,7 @@ To add the app that uses this plugin to the device's battery optimization whitel
 window.powerManagement.addAppToBatteryWhitelist(function() {
 	console.log('A dialog has popped up asking you to accept adding the app to the whitelist.');
 }, function() {
-	console.log('Failed to add the app to the device's battery optimization whitelist.');
+	console.log('Failed to add the app to the device\'s battery optimization whitelist.');
 });
 ```
 
@@ -104,10 +104,10 @@ To check to see if the app that uses this plugin is on the device's battery opti
 ```js
 window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 	if (result === 1) {
-		console.log('This app IS on the device's battery optimization whitelist.');
+		console.log('This app IS on the device\'s battery optimization whitelist.');
 	}
 	else {
-		console.log('This app IS NOT on the device's battery optimization whitelist.');
+		console.log('This app IS NOT on the device\'s battery optimization whitelist.');
 	}
 }, function() {
 	console.log('Failed to add the app to the device's battery optimization whitelist.');
@@ -122,14 +122,14 @@ window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 		window.powerManagement.addAppToBatteryWhitelist(function() {
 			console.log('A dialog has popped up asking you to accept adding the app to the whitelist.');
 		}, function() {
-			console.log('Failed to add the app to the device's battery optimization whitelist.');
+			console.log('Failed to add the app to the device\'s battery optimization whitelist.');
 		});
 	}
 	else {
-		console.log('This app IS NOT on the device's battery optimization whitelist.');
+		console.log('This app IS NOT on the device\'s battery optimization whitelist.');
 	}
 }, function() {
-	console.log('Failed to add the app to the device's battery optimization whitelist.');
+	console.log('Failed to add the app to the device\'s battery optimization whitelist.');
 });
 ```
 Note that in all the above examples, all callbacks are optional.
