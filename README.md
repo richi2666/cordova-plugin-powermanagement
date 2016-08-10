@@ -102,6 +102,7 @@ components (network connection, GPS, etc.) when it is asleep for an extended per
 
 To check to see if the app that uses this plugin is on the device's battery optimization whitelist, use the following function:
 ```js
+// 'result' is either 1 (in whitelist), or 0 (not in whitelist)
 window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 	if (result === 1) {
 		console.log('This app IS on the device\'s battery optimization whitelist.');
@@ -116,6 +117,7 @@ window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 
 This function can be use in conjunction with the `window.powerManagement.addAppToBatteryWhitelist` above. Example:
 ```js
+// 'result' is either 1 (in whitelist), or 0 (not in whitelist)
 window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 	// If the app isn't on the battery whitelist, open the dialog to add it
 	if (result !== 1) {
