@@ -79,7 +79,7 @@ else {
 	}
 	
 }, function() {
-	console.log('Failed to check the device's idle state.');
+	console.log('Failed to check the device\'s idle state.');
 });
 ```
 
@@ -110,7 +110,7 @@ window.powerManagement.isIgnoringBatteryOptimizations(function(result) {
 		console.log('This app IS NOT on the device\'s battery optimization whitelist.');
 	}
 }, function() {
-	console.log('Failed to add the app to the device's battery optimization whitelist.');
+	console.log('Failed to add the app to the device\'s battery optimization whitelist.');
 });
 ```
 
