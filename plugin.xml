@@ -55,7 +55,16 @@
 
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
         </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+		<receiver android:exported="false" android:name="org.apache.cordova.powermanagement.PowerManagement">
+			<intent-filter>
+				<action android:name="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+			</intent-filter>
+		</receiver>
+	</config-file>
 
         <source-file src="src/android/PowerManagement.java" target-dir="src/org/apache/cordova/powermanagement" />
     </platform>
