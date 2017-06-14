@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-powermanagement",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-powermanagement",
+    "platforms": [
+      "ios",
+      "android",
+      "wp"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richi2666/cordova-plugin-powermanagement.git"
+  },
+  "keywords": [
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ]
+}
